@@ -6,8 +6,8 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-card *ngFor="let book of books">
-    <img alt="Silhouette of mountains" src="https://robohash.org/sss/s"/>
+  <ion-card *ngFor="let book of books; let i = index">
+    <img alt="Robot Image" [src]="robots"/>
     <ion-card-header>
       <ion-card-title>{{book.title}}</ion-card-title>
     </ion-card-header>

@@ -35,6 +35,7 @@ export class HomePage  implements OnInit {
     this.robotsService.getRobots(randomWord).subscribe({
       next: (response: any) => {
         this.robots = response.results || response;
+        console.log('Robots:', this.robots);
       },
       error: (error) => {
         console.error('Error fetching robots:', error);

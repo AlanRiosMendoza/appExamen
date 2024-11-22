@@ -7,19 +7,24 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class RobotsService {
-  private apiUrl = 'https://robohash.org/';
+  private apiUrl = 'https://robohash.org';
   constructor(private http: HttpClient) {}
 
-  getRobots(word: string): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/${word}`).pipe(
+  getRobots(word: string): Observable<Blob> {
+    return this.http.get(`${this.apiUrl}/${word}`, { responseType: 'blob' }).pipe(
       catchError(this.handleError)
     );
   }
 
   private handleError(error: HttpErrorResponse) {
-    // Log the error to the console or send it to a logging infrastructure
-    console.error('An error occurred:', error.message);
-    // Return an observable with a user-facing error message
+    if (error.error instanceof ErrorEvent) {
+      console.error('An error occurred:', error.error.message);
+    } else {
+      console.error(
+        `Backend returned code ${error.status}, ` +
+        `body was: ${error.error}`
+      );
+    }
     return throwError('Something went wrong; please try again later.');
   }
 }
