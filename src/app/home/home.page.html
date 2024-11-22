@@ -6,10 +6,10 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-card>
-    <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+  <ion-card *ngFor="let book of books">
+    <img alt="Silhouette of mountains" src="https://robohash.org/sss/s"/>
     <ion-card-header>
-      <ion-card-title>Card Title</ion-card-title>
+      <ion-card-title>{{book.title}}</ion-card-title>
     </ion-card-header>
     <ion-button>Save</ion-button>
   </ion-card>
