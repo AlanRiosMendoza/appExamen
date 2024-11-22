@@ -7,10 +7,10 @@
 </ion-header>
 <ion-content>
   <ion-card *ngFor="let book of books; let i = index">
-    <img alt="Robot Image" [src]="robots"/>
+    <img alt="Robot Image" [src]="robots[i]"/>
     <ion-card-header>
       <ion-card-title>{{book.title}}</ion-card-title>
     </ion-card-header>
-    <ion-button>Save</ion-button>
   </ion-card>
 </ion-content>
+<ion-button>Save</ion-button>
