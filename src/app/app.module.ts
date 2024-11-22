@@ -4,17 +4,20 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
+import { IonicModule } from '@ionic/angular';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 @NgModule({
   declarations: [
-    // tus componentes
+    AppComponent
   ],
   imports: [
-    BrowserModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireStorageModule
+    BrowserModule, // Asegúrate de que BrowserModule esté aquí
+    AngularFireStorageModule,
+    IonicModule.forRoot(),
+    AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
