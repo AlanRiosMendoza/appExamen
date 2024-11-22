@@ -51,7 +51,7 @@ export class HomePage  implements OnInit {
 
   saveLinkWithTitle(title: string, link: string) {
     const linkData = { title, link };
-    this.firebaseService.saveInfo(linkData).subscribe({
+    this.firebaseService.saveInfo(linkData.title, linkData.link).subscribe({
       next: () => {
         console.log('Link saved successfully');
       },
