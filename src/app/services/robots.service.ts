@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import { Observable, throwError, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 @Injectable({
@@ -9,9 +9,10 @@ import { catchError } from 'rxjs/operators';
 export class RobotsService {
   private apiUrl = 'https://robohash.org';
   constructor(private http: HttpClient) {}
-
-  getRobots(word: string): Observable<Blob> {
-    return this.http.get(`${this.apiUrl}/${word}`, { responseType: 'blob' }).pipe(
+  
+  getRobots(word: string): Observable<string> {
+    const robotUrl = `${this.apiUrl}/${word}`;
+    return robotUrl).pipe(
       catchError(this.handleError)
     );
   }
