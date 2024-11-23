@@ -1,20 +1,16 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError, of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RobotsService {
   private apiUrl = 'https://robohash.org';
-  constructor(private http: HttpClient) {}
+  constructor() {}
   
   getRobots(word: string): Observable<any> {
-
-    const link = `https://robohash.org/${word}`;
-  
+    const link = `${this.apiUrl}/${word}`;
     return of({ results: [{ link }] });
-  
   }
    
 }

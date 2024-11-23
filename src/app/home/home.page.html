@@ -1,17 +1,19 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Robot APP
+      Book Bot
     </ion-title>
   </ion-toolbar>
 </ion-header>
+
 <ion-content>
   <ion-card *ngFor="let book of books; let i = index">
-    <img alt="Robot Image" [src]="robots[i]"/>
     <ion-card-header>
       <ion-card-title>{{book.title}}</ion-card-title>
     </ion-card-header>
-    <ion-button>Save</ion-button>
-  <ion-button (click)="saveLinkWithTitle(book.title, robots[i])">Save</ion-button>
+    <ion-card-content>
+      <img alt="Robot Image" [src]="robots[i]" />
+      <button (click)="saveLinkWithTitle(book.title, robots[i])">Save</button>
+    </ion-card-content>
   </ion-card>
 </ion-content>
